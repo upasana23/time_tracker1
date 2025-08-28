@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Pop-up Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .demo-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+        
+        .demo-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .demo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-description {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .chatbot-note {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        
+        .chatbot-note h3 {
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .chatbot-note ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .chatbot-note li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .chatbot-note li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-content">
+        <h1 class="demo-title">🚀 Smart Timetable & Attendance System</h1>
+        <p class="demo-subtitle">Industry-Ready Machine Learning-Powered Educational Management Platform</p>
+        
+        <div class="demo-features">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Smart Analytics</h3>
+                <p class="feature-description">ML-powered attendance prediction and risk assessment with real-time insights</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">AI Chatbot</h3>
+                <p class="feature-description">RAG-enabled intelligent assistant for student queries and routine information</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3 class="feature-title">Smart Timetabling</h3>
+                <p class="feature-description">AI-optimized class schedules with constraint handling and conflict resolution</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3 class="feature-title">Risk Management</h3>
+                <p class="feature-description">Automated attendance risk detection and notifications for students and parents</p>
+            </div>
+        </div>
+        
+        <div class="chatbot-note">
+            <h3>💬 Chatbot Pop-up Feature</h3>
+            <p>The chatbot now opens as a small pop-up window in the right down corner of the same window:</p>
+            <ul>
+                <li><strong>Compact Design:</strong> 350px × 500px pop-up window</li>
+                <li><strong>Smart Positioning:</strong> Appears above the floating chat button</li>
+                <li><strong>Professional Header:</strong> Blue gradient header with close button</li>
+                <li><strong>Smooth Animations:</strong> Slide-in effect with proper transitions</li>
+                <li><strong>Easy Access:</strong> Click the floating chat button to open</li>
+                <li><strong>Quick Close:</strong> Use the close button or click outside to close</li>
+            </ul>
+            <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">
+                Look for the blue chat button in the bottom right corner! 🎯
+            </p>
+        </div>
+    </div>
+    
+    <!-- Include the chatbot -->
+    <script>
+        // Load the chatbot iframe or embed it directly
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can embed the chatbot here or load it as an iframe
+            console.log('Demo page loaded. Chatbot should be available in the bottom right corner.');
+        });
+    </script>
+</body>
+</html>

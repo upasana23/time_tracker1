@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # Frontend - Next.js React App
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:4000
+      - NEXT_PUBLIC_ML_API_URL=http://ml-service:8000
+      - NEXT_PUBLIC_CHATBOT_URL=http://chatbot:3001
+    depends_on:
+      - backend
+      - ml-service
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  # Backend - Node.js Express API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - ML_SERVICE_URL=http://ml-service:8000
+      - JWT_SECRET=your-super-secret-jwt-key-change-in-production
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - ./backend/data:/app/data
+    networks:
+      - app-network
+
+  # ML Service - Python FastAPI
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./ml-service:/app
+      - ./ml-service/data:/app/data
+      - ./ml-service/outputs:/app/outputs
+    networks:
+      - app-network
+
+  # Chatbot - Static HTML with RAG Integration
+  chatbot:
+    build:
+      context: ./chatbot
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    environment:
+      - API_URL=http://backend:4000
+      - ML_API_URL=http://ml-service:8000
+    depends_on:
+      - backend
+      - ml-service
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  backend-data:
+  ml-data:
